@@ -1,3 +1,10 @@
 What exactly are you doing when you do:
 class varName = new class()
+What on a base level is is each part doing?
+
+gitignores what the heck? how do you do these in a clean fashion? are there syntax(right word?) standards?
+
+General file structure for a project? What is a good file structure system (if there is such a thing) to follow?
+
+When and where to comment stuff?
 
