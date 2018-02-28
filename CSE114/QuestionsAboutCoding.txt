@@ -1,0 +1,3 @@
+What exactly are you doing when you do:
+class varName = new class()
+
