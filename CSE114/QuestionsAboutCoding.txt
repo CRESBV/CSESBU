@@ -1,11 +1,39 @@
 What exactly are you doing when you do:
 class varName = new class()
+
+//This is creating the memory space for the instantiation of this object
+//"new" creates the memory space
+//the left class define the type
+//List varName = new ArrayList() - e.g. ArrayList if the concrete class that takes up memory, List is the interface
+//that define the methods accessible to varName.
+//"=" is assignment - for objects this is just a pointer to a memory location (an address in computer memory).
+//So varName is just a reference to its type (actually this might be at the memory location), and a reference to its memory location.
+//"=" for primitives is actually the bytes used to store the information.
+//So imagine that all objects assignments are just references to references to references UNTIL they run into a primitive
+//and then that really exists!  It is amazing that all works rapidly, but it does.
+
+//What is really going on in a programming language is "words" - "variable" are mapped to memory locations.  And we keep referencing
+//memory locations into one another.  Until they get down to primitives.  Classes are just organized sets of references.
+
+
+
 What on a base level is is each part doing?
 
 gitignores what the heck? how do you do these in a clean fashion? are there syntax(right word?) standards?
+//not good at this.
+//google this.
+
 
 General file structure for a project? What is a good file structure system (if there is such a thing) to follow?
+//Yes - follow Maven.
+//Start a de novo project.  Bring in libraries through the pom file.  Code in one folder, Test code in another parallel
+//folder.  Resources in another folder.
+
 
 When and where to comment stuff?
+//All methods and class need to be documented.
+//Then any clever thing in the code that take more than 10sec to figure out.
+
+
 
 When is it good to use conditional operators when is it not? I assume it has readability issues at some point correct?
