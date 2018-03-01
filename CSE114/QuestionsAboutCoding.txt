@@ -8,3 +8,4 @@ General file structure for a project? What is a good file structure system (if t
 
 When and where to comment stuff?
 
+When is it good to use conditional operators when is it not? I assume it has readability issues at some point correct?

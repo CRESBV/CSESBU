@@ -1,6 +1,6 @@
 //Edward Buckler
 //111628438
-//L05
+//L05snippetssnippets
 import java.util.Scanner;
 
 public class RemoveDuplicates {
