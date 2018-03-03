@@ -1,4 +1,5 @@
-public class Factorial {
+import java.util.*;
+public class Testing {
     public static void main(String[] args) {
         int num = 5;
         int out = 1;

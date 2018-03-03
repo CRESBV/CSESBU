@@ -1,11 +1,7 @@
-//import java.util.*;
-//
-//
-//public class CSEClass1 {
-//    public static void main(String[] args) {
-//        String ner = "01";
-//        for (int i = 0; i < 10; i++) {
-//            nerd[i] = "nerd";
-//        }
-//    }
-//}
+import java.util.*;
+
+public class CSEClass1 {
+    public static void main(String[] args) {
+        System.out.println(3 + 4 * 4 > 5 * (4 + 3) - 1 );
+        }
+    }

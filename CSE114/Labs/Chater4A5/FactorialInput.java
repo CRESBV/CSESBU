@@ -12,6 +12,6 @@ public class FactorialInput {
         for (int i = 2; i <= factor; i++) {
             out *= i;
         }
-        System.out.println("Factorial is : " + out);
+        System.out.println("Testing is : " + out);
     }
 }
