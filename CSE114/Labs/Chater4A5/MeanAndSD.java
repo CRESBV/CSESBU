@@ -20,12 +20,17 @@ public class MeanAndSD {
         double out = 0;
         for (int i = 0; i < x.length; i++) {
             out += Math.pow(x[i] - mean, 2);
+            //I have tested recently, but it used to be faster to multiply the two numbers, rather than call
+            //the power function for squares or cubes.
         }
         out = Math.pow(out / (x.length - 1), 0.5);
         return out;
     }
     public static double mean(double[] x){
         double mean = DoubleStream.of(x).sum()/x.length;
+        /*This is also an alternative
+        DoubleStream.of(x).summaryStatistics().getAverage();
+         */
         return mean;
     }
 }

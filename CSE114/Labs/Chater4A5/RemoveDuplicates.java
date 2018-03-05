@@ -1,7 +1,9 @@
 //Edward Buckler
 //111628438
 //L05snippetssnippets
-import java.util.Scanner;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {
@@ -40,6 +42,19 @@ public class RemoveDuplicates {
             }
         }
         return false;
+    }
+
+    //Does this by using the properties of sets (unordered unique collection of numbers).
+    // It is more combursome than it needs to be as the numbers
+    //were collected in a primitive array.
+    public static int[] makeSet(int[] list) {
+        Set<Integer> uniqueInts = Arrays.stream(list).boxed().collect(Collectors.toSet());
+        return uniqueInts.stream().mapToInt(i -> i).toArray();
+    }
+
+    //The one liner version.
+    public static List<Integer> makeSet(List<Integer> list) {
+        return new ArrayList<>(new HashSet<>(list));
     }
 
 }
