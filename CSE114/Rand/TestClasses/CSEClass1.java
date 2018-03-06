@@ -2,6 +2,9 @@ import java.util.*;
 
 public class CSEClass1 {
     public static void main(String[] args) {
-        System.out.println(3 + 4 * 4 > 5 * (4 + 3) - 1 );
+        String[][] ss = {{"hi", "hre"}, {"asdf", "there"}};
+        for (String[] s: ss) {
+            System.out.println(Arrays.toString(s));
+        }
         }
     }

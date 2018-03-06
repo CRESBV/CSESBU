@@ -3,16 +3,17 @@ import java.util.Scanner;
 public class Solution {
 
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("================================");
-        for(int i=0;i<3;i++)
-        {
-            String s1=sc.next();
-            int x=sc.nextInt();
+        String n = "bob";
+        String b = "asdf";
+        b = n;
+        n = "chicken";
+        System.out.println("b = " + b);
+        System.out.println("n = " + n);
+    }
 
-            System.out.printf("%-14s %03d %n",s1,x);
+    public void powerTo(double a, double b, double c) {
+        if (b * b - 4 * a * c < 0) {
+            System.out.println("no real solutions");
         }
-        System.out.println("================================");
-
     }
 }

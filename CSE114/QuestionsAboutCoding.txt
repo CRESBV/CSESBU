@@ -34,6 +34,8 @@ When and where to comment stuff?
 //All methods and class need to be documented.
 //Then any clever thing in the code that take more than 10sec to figure out.
 
+list2.length
+why does the length not need a ()
 
 
 When is it good to use conditional operators when is it not? I assume it has readability issues at some point correct?

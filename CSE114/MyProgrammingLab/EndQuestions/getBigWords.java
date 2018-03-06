@@ -1,9 +1,6 @@
-import java.awt.*;
-import java.util.ArrayList;
-
-public class Testing {
+public class getBigWords {
     public static void main(String[] args) {
-        System.out.println(java.util.Arrays.toString(getBigWords("There are 87,000,000 people in Canada")));
+        System.out.println(java.util.Arrays.toString(getBigWords("there-is-large chiken coming")));
     }
 
     public static String[] getBigWords(String line) {
