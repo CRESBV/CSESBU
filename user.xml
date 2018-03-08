@@ -1,0 +1,48 @@
+<templateSet group="user">
+  <template name="inpt" value="Scanner input = new Scanner(System.in);" description="makes a Scanner with var name input" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="sou" value="System.out.print($END$);" description="prints a string to System out w/o ln" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="name" value="//Edward Buckler&#10;//111628438&#10;//L05&#10;/*&#10;$CLASS_DESCRIPTION$&#10;*/" description="Puts in name, id, and lab" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS_DESCRIPTION" expression="" defaultValue="&quot;class description goes here&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="pus" value="public static $END$" description="Public Static" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="pis" value="private static $END$" description="Private Static" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="arrst" value="public static String printArray$VAR_TYPE_COPY_CAP$($VAR_TYPE$[] array) {&#10;    String out = &quot;&quot;;&#10;    for ($VAR_TYPE$ $VAR_TYPE_COPY_LOW$Element : array) {&#10;        out += $VAR_TYPE_COPY_LOW$Element + &quot;, &quot;;&#10;    }&#10;    out = out.substring(0, out.length() - 2);&#10;    return out;&#10;}" description="array to string method" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR_TYPE" expression="variableOfType(&quot;&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAR_TYPE_COPY_CAP" expression="capitalize(VAR_TYPE)" defaultValue="" alwaysStopAt="false" />
+    <variable name="VAR_TYPE_COPY_LOW" expression="camelCase(VAR_TYPE)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="adlt" value="/*&#10;adlt - com added live templates abbreviations + descriptions&#10;arrst - array to string method&#10;bbsa - bubble sort array method&#10;inpt - makes a Scanner with var name input&#10;name - Puts in name, id, and lab&#10;pis - Private Static&#10;pus - Public Static&#10;sou - prints a string to System out w/o ln&#10;*/" description="com added live templates abbreviations + descriptions" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="bbsa" value="public static $VAR_TYPE$[] bubbleSortArray($VAR_TYPE$[] array) {&#10;        boolean done = false;&#10;        while (!done) {&#10;            done = true;&#10;            for (int i = 1; i &lt; array.length; i++) {&#10;                if ($VAR_TYPE_MOD$(array[i-1]).compareToIgnoreCase($VAR_TYPE_MOD$(array[i])) &gt;0) {&#10;                    done = false;&#10;                    $VAR_TYPE$ temp = array[i];&#10;                    array[i] = array[i - 1];&#10;                    array[i-1] = temp;&#10;                }&#10;            }&#10;        }&#10;        return array;&#10;    }" description="bubble sort array method" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR_TYPE" expression="variableOfType(Type)" defaultValue="int" alwaysStopAt="true" />
+    <variable name="VAR_TYPE_MOD" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,8 +1,6 @@
 CSE114/out/
 *.class
 .idea/
-*.xml
-*.xml
 CSESBU.iml
 .idea/vcs.xml
 .idea/misc.xml
