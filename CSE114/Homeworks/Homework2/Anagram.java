@@ -24,6 +24,9 @@ public class Anagram {
     private static boolean testIfAnagram(String wordOne, String wordTwo) {
         wordOne = wordOne.toLowerCase();
         wordTwo = wordTwo.toLowerCase();
+        if (wordOne.length() != wordTwo.length()) {
+            return false;
+        }
         for (int i = 0; i < wordOne.length(); i++) {
             if (wordOne.charAt(i) != wordTwo.charAt(i)) {
                 return false;

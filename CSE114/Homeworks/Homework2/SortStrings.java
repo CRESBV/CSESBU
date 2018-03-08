@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 //Edward Buckler
@@ -16,19 +17,11 @@ the sorted string array.
 public class SortStrings {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter 10 strings: ");
+        System.out.println("Enter 10 strings: ");
         String line = input.nextLine();
-        String[] listString = line.split(",");
+        String[] listString = line.split(", ");
+        System.out.println("Sorted strings: "+printArrayString(bubbleSortArray(listString)));
 
-    }
-
-    public static String printArrayInt(int[] array) {
-        String out = "";
-        for (int intElement : array) {
-            out += intElement + ", ";
-        }
-        out = out.substring(0, out.length() - 2);
-        return out;
     }
 
     public static String[] bubbleSortArray(String[] array) {
@@ -36,15 +29,24 @@ public class SortStrings {
         while (!done) {
             done = true;
             for (int i = 1; i < array.length; i++) {
-                if (array[i - 1].compareToIgnoreCase(array[i]) < 0) {
+                if (array[i - 1].compareToIgnoreCase(array[i]) > 0) {
                     done = false;
                     String temp = array[i];
                     array[i] = array[i - 1];
-                    array[i-1] = temp;
+                    array[i - 1] = temp;
                 }
             }
         }
         return array;
+    }
+
+    public static String printArrayString(String[] array) {
+        String out = "";
+        for (String stringElement : array) {
+            out += stringElement + ", ";
+        }
+        out = out.substring(0, out.length() - 2);
+        return out;
     }
 }
 
