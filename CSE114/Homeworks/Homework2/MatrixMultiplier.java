@@ -19,16 +19,46 @@ public class MatrixMultiplier {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter matrix1: ");
+        double[][] arr1 = arrayFromInput(3, 3);
         System.out.println("Enter matrix2: ");
+        double[][] arr2 = arrayFromInput(3, 3);
+        System.out.println(printArrayDouble(multiplyMatrix(arr1, arr2)));
 
+
+    }
+
+    public static double[][] multiplyMatrix(double[][] a, double[][] b) {
+        double[][] out = new double[b.length][a[0].length];
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < b[0].length; j++) {
+                for (int k = 0; k < a[0].length; k++) {
+                    out[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return out;
     }
 
     public static double[][] arrayFromInput(int length, int width) {
         java.util.Scanner input = new java.util.Scanner(System.in);
         double[][] out = new double[length][width];
-        for (int i = 0; i < length; i++) {
-           //out[i] = input.nextDouble();
+        for (int i = 0; i < out.length; i++) {
+            for (int j = 0; j < out[i].length; j++) {
+                out[i][j] = input.nextDouble();
+            }
         }
+        return out;
+    }
+
+    public static String printArrayDouble(double[][] array) {
+        String out = "";
+        for (double[] column : array) {
+            for (double element : column) {
+                out += element + ", ";
+            }
+            out += "\n";
+        }
+        out = out.substring(0, out.length() - 2);
         return out;
     }
 }
