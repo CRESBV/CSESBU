@@ -1,25 +1,10 @@
 import java.util.*;
 
 public class Test {
-    private static double radius;
-    private static double area;
-    private static double circumference;
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++)
+            System.out.println("hey nerd");
 
-    public void defineRadius(double rad) {
-        radius = rad;
-    }
 
-    public double returnRadius() {
-        return radius;
-    }
-
-    public double returnArea() {
-        area = Math.PI * Math.pow(radius, 2);
-        return area;
-    }
-
-    public double returnCircumference() {
-        circumference = radius * 2 * Math.PI;
-        return circumference;
     }
 }
