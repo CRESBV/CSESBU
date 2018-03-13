@@ -6,8 +6,12 @@ public class Animal {
     String fur;
 
     public Animal(int legs) {
+        this(legs,"Unknown");
+    }
+
+    public Animal(int legs, String fur) {
         this.legs = legs;
-        fur = "Unknown";
+        this.fur = fur;
     }
 
     @Override
@@ -22,8 +26,7 @@ public class Animal {
 
 class Mammal extends Animal {
     public Mammal(int legs) {
-        super(legs);
-        fur = "Yes";
+        super(legs, "Yes");
     }
 
     @Override
