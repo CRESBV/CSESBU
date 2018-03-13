@@ -8,6 +8,17 @@ characters. Write a test program for that prompts the user to input two strings 
 method.
 */
 
+/*
+adlt - com added live templates abbreviations + descriptions
+arrst - array to string method
+bbsa - bubble sort array method
+inpt - makes a Scanner with var name input
+name - Puts in name, id, and lab
+pis - Private Static
+pus - Public Static
+sou - prints a string to System out w/o ln
+*/
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -18,29 +29,20 @@ public class Anagram {
         String wordOne = input.nextLine();
         System.out.print("Enter the second string: ");
         String wordTwo = input.nextLine();
-        System.out.println((testIfAnagram2(wordOne, wordTwo) ? wordOne + " and " + wordTwo + " are anagrams" : wordOne +
+        System.out.println((testIfAnagram(wordOne, wordTwo) ? wordOne + " and " + wordTwo + " are anagrams" : wordOne +
                 " and " + wordTwo + " are NOT anagrams"));
     }
 
     private static boolean testIfAnagram(String wordOne, String wordTwo) {
         wordOne = wordOne.toLowerCase();
         wordTwo = wordTwo.toLowerCase();
-        if (wordOne.length() != wordTwo.length()) {
-            return false;
-        }
-        for (int i = 0; i < wordOne.length(); i++) {
-            if (wordOne.charAt(i) != wordTwo.charAt(i)) {
-                return false;
-            }
-        }
-        return true;
+        char[] w1 = wordOne.toCharArray();
+        char[] w2 = wordTwo.toCharArray();
+        Arrays.sort(w1);
+        Arrays.sort(w2);
+        return Arrays.equals(w1, w2);
     }
 
-    private static boolean testIfAnagram2(String wordOne, String wordTwo) {
-        //chars() starts an intStream of the characters, it is sorted, and then converted to int array
-        int[] val1=wordOne.toLowerCase().chars().sorted().toArray();
-        int[] val2=wordTwo.toLowerCase().chars().sorted().toArray();
-        return Arrays.equals(val1,val2);
-    }
+    
 
 }
