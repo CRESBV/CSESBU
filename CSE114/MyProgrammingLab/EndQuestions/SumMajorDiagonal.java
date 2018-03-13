@@ -22,21 +22,19 @@ public class SumMajorDiagonal {
         double[][] arr = new double[n][n];
         for (int i = 0; i < n; i++) {
             System.out.print("Enter row " + i + ":");
-            arr[i] = setRow(n);
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = input.nextDouble();
+            }
         }
-        double sum = 0;
-        for (int i = 0; i < n; i++) {
-            sum += arr[i][i];
-        }
-        System.out.print(sum);
+        System.out.print(sumMajorDiagonal(arr));
     }
 
-    public static double[] setRow(int n) {
-        double[] out = new double[n];
-        Scanner input = new Scanner(System.in);
-        for (int i = 0; i < n; i++) {
-            out[i] = input.nextDouble();
+    public static double sumMajorDiagonal(double[][] m) {
+        double sum = 0;
+        for (int i = 0; i < m.length; i++) {
+            sum += m[i][i];
         }
-        return out;
+        return sum;
     }
+
 }

@@ -43,6 +43,6 @@ public class Anagram {
         return Arrays.equals(w1, w2);
     }
 
-    
+
 
 }
