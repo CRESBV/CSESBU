@@ -5,7 +5,7 @@ why does the array.length not need a () is it not a method call? If not a method
 
 When to use a varargs as in "private static int methodName (int ... num)" and not just an array
 
-What are some good uses of this? Also what is it really doing?
+
 
 What does static really do? I get that a in a variable it makes all instances of an object have a variable that points to the
 same address. In a method it meant that I don't have to create a new object (not right term?) of that class and I can
@@ -25,9 +25,13 @@ of classes it just gets messy.
 When calling System.out.println I'm assuming println is a method, out is a class, and System is... Something special?
 
 ANSWERED QUESTIONS:
+What are some good uses of this? Also what is it really doing?
+//this just makes sure that it is the classes version rather than method. becomes more of a thing with inheritance
+//Also allows you to call the constructor of a class within a class
 
 What exactly are you doing when you do:
 class varName = new class()
+What on a base level is is each part doing?
 
 //This is creating the memory space for the instantiation of this object
 //"new" creates the memory space
@@ -43,9 +47,6 @@ class varName = new class()
 //What is really going on in a programming language is "words" - "variable" are mapped to memory locations.  And we keep referencing
 //memory locations into one another.  Until they get down to primitives.  Classes are just organized sets of references.
 
-
-
-What on a base level is is each part doing?
 
 gitignores what the heck? how do you do these in a clean fashion? are there syntax(right word?) standards?
 //not good at this.
