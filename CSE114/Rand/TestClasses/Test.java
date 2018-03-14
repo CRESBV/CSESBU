@@ -1,4 +1,3 @@
-import javax.swing.text.Highlighter;
 import java.util.Arrays;
 
 public class Test {

@@ -15,4 +15,5 @@ public class AverageAcceleration {
         double out = (numbers[1]-numbers[0])/numbers[2];
         System.out.println("The average acceleration is: "+out);
     }
+
 }

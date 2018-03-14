@@ -1,3 +1,4 @@
+
 /**
  * Example of interheritance and usage of this, super
  */
@@ -25,6 +26,7 @@ public class Animal {
 
 
 class Mammal extends Animal {
+
     public Mammal(int legs) {
         super(legs, "Yes");
     }
