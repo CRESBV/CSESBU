@@ -8,7 +8,7 @@ public class Q20776 {
     }
 
 
-    public static boolean getWidgetMatch(Integer widget1, Integer [] widgetList) {
+    public static boolean getWidgetMatch(Integer widget1, Integer[] widgetList) {
         int lowVal = 0, highVal = widgetList.length, midVal = (highVal - lowVal) / 2 + lowVal;
         while (highVal - lowVal > 1) {
             if (widget1.compareTo(widgetList[midVal]) == 0) {

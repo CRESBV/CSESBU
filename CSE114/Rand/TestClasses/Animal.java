@@ -50,9 +50,9 @@ class Mammal extends Animal {
 
     public static void main(String[] args) {
         Animal bug = new Animal(3);
-        System.out.println("bug.toString() = " + bug.toString());
+        //System.out.println("bug.toString() = " + bug.toString());
 
         Mammal dog = new Mammal(4);
-        System.out.println("dog.toString() = " + dog.toString());
+        //System.out.println("dog.toString() = " + dog.toString());
     }
 }
