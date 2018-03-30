@@ -1,6 +1,9 @@
 public class Tester {
-    public static void main(String args[]) {
-        Long nerd = new Long(2000000000);
+    protected String nerd = "whoa hey look stuff";
+}
 
+class inheritTester extends Tester {
+    public static void main(String[] args) {
+        //System.out.println("nerd = " + );
     }
 }
