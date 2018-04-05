@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * @author edwardBucklerV
  * 111628438
@@ -34,4 +36,85 @@
  * Division of the rational numbers is: 8/3
  */
 public class Rational {
+    private int numerator, denominator;
+
+    public Rational() {
+        numerator = 1;
+        denominator = 1;
+    }
+
+    public Rational(int numerator, int denominator) {
+        this.numerator = numerator;
+        this.denominator = denominator;
+        reduce();
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Rational testing1 = new Rational(), testing2 = new Rational();
+        System.out.print("Enter numerator for the first rational number: ");
+        testing1.setNumerator(input.nextInt());
+        System.out.print("Enter a non-zero denominator for the first rational number: ");
+        testing1.setDenominator(input.nextInt());
+        System.out.print("Enter numerator for the first rational number: ");
+        testing2.setNumerator(input.nextInt());
+        System.out.print("Enter a non-zero denominator for the first rational number: ");
+        testing2.setDenominator(input.nextInt());
+        System.out.println("First rational number is: " + testing1);
+        System.out.println("Second rational number is: " + testing2);
+        System.out.println("Addition of the rational numbers is: " + add(testing1, testing2));
+        System.out.println("Subtraction of the rational numbers is: " + subtract(testing1, testing2));
+        System.out.println("Multiplication of the rational numbers is: " + multiply(testing1, testing2));
+        System.out.println("Division of the rational numbers is: " + divide(testing1, testing2));
+    }
+
+    public static Rational add(Rational num1, Rational num2) {
+        return new Rational(num1.getNumerator() * num2.getDenominator() + num2.getNumerator() *
+                num1.getDenominator(), num1.getDenominator() * num2.getDenominator());
+    }
+
+    public static Rational subtract(Rational num1, Rational num2) {
+        return new Rational(num1.getNumerator() * num2.getDenominator() - num2.getNumerator() *
+                num1.getDenominator(), num1.getDenominator() * num2.getDenominator());
+    }
+
+    public static Rational multiply(Rational num1, Rational num2) {
+        return new Rational(num1.getNumerator() * num2.getNumerator(), num1.getDenominator() * num2.getDenominator());
+    }
+
+    public static Rational divide(Rational num1, Rational num2) {
+        return new Rational(num1.getNumerator() * num2.getDenominator(), num1.getDenominator() * num2.getNumerator());
+    }
+
+    private void reduce() {
+        for (int i = ((numerator > denominator) ? denominator : numerator); i > 0; i--) {
+            if (numerator % i == 0 && denominator % i == 0) {
+                numerator /= i;
+                denominator /= i;
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return numerator + "/" + denominator;
+    }
+
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+        reduce();
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    public void setDenominator(int denominator) {
+        this.denominator = denominator;
+        reduce();
+    }
 }

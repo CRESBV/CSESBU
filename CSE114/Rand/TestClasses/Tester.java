@@ -4,6 +4,6 @@ public class Tester {
 
 class inheritTester extends Tester {
     public static void main(String[] args) {
-        //System.out.println("nerd = " + );
+        //System.out.println("testMethod = " + );
     }
 }

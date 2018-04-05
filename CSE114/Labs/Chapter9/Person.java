@@ -101,7 +101,7 @@ class Faculty extends Employee {
     String rank, officeHours;
 
     public Faculty() {
-        rank = "nerd";
+        rank = "testMethod";
         officeHours = "10:00 to 12:00";
     }
 
@@ -123,7 +123,7 @@ class Staff extends Employee {
     String title;
 
     public Staff() {
-        title = "nerd";
+        title = "testMethod";
     }
 
     public Staff(String name, String address, String phoneNumber, String email, String office, Date dateHired, double salary, String title) {
