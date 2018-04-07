@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * @author edwardBucklerV
  * 111628438
@@ -41,7 +43,23 @@ public class Location {
                 }
             }
         }
-        return new Location(0,0,0);
+        return new Location(row, column, max);
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of rows and columns in the array: ");
+        int rows = input.nextInt(), columns = input.nextInt();
+        System.out.println("Enter the array: ");
+        double[][] testingArr = new double[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                testingArr[i][j] = input.nextDouble();
+            }
+        }
+        Location testingLoc = locateLargest(testingArr);
+        System.out.println("The location of the largest element " + testingLoc.maxValue + " is at (" + testingLoc.row + ", " +
+                "" + testingLoc.column + ")");
     }
 
 }

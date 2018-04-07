@@ -1,3 +1,17 @@
+PROMPTS:
+Enter a positive integer to create a MyInteger object or to move on to next part of program:
+Enter a positive integer to test static isXXX(int) methods or to move on to next part of program:
+Enter a positive integer to test static isXXX(MyInteger) methods or to move on to next part of program:
+Enter a the first of two positive integers to create obj2 and test obj2.equals(int) or to move on to next part of program:
+Enter a the second of two positive integers to test obj2.equals(int):
+Enter a the first of two positive integers to create obj2 and test obj2.equals(MyInteger obj3) or to move on to next part of program:
+Enter a the second of two positive integers to create obj3 and test obj2.equals(MyInteger obj3):
+Enter a positive integer that will be placed into a char[] array to demonstrate the MyInteger.parseInt(char[]):
+Enter a positive integer that will be placed into a String to demonstrate the MyInteger.parseInt(String):
+
+
+SAMPLE RUN:
+
 Enter a positive integer to create a MyInteger object or to move on to next part of program:1
 MyInteger obj0 = new MyInteger(1);
 obj0.getValue() = 1
