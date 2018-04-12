@@ -6,18 +6,13 @@ this be to show off
 */
 
 
+import java.util.Scanner;
+
 public class CSEClass1 {
     public static void main(String[] args) {
-        try {
-            int[] list = new int[10];
-            System.out.println("list[10]" + list[10]);
-        } catch (ArithmeticException ex) {
-            System.out.println("A");
-        } catch (IndexOutOfBoundsException ex) {
-            System.out.println("B");
-        } catch (RuntimeException ex) {
-            System.out.println("You right");
-        }
+        Scanner input = new Scanner(System.in);
+        int z = 1 / input.nextInt();
+        input.close();
     }
 }
 
