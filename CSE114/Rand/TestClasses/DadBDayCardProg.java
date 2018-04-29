@@ -28,7 +28,6 @@ public class DadBDayCardProg {
                 System.out.print(sylabols[i]);
                 channel.noteOn(notes[i], power);
                 try {
-
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
                     break;
