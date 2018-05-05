@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -11,14 +12,13 @@ import java.util.Scanner;
 public class ConnectFour {
     public static void main(String[] args) {
         GameBoard board = new GameBoard();
+        board.printBoard();
         Scanner input = new Scanner(System.in);
-        boolean redturn = true;
+        boolean redTurn = true;
         boolean win = false;
         while (!win) {
-            //Print board
-            board.printBoard();
             //Print command based on whos turn
-            System.out.print((redturn) ? "Drop a red disk at column (0 - 6): " : "Drop a yellow disk at column (0 -" +
+            System.out.print((redTurn) ? "Drop a red disk at column (0 - 6): " : "Drop a yellow disk at column (0 -" +
                     " 6): ");
             //read what was inputted
             String inputVal = input.nextLine();
@@ -37,25 +37,30 @@ public class ConnectFour {
                 continue;
             }
             //Alternator
-            if (redturn) {
+            //Red
+            if (redTurn) {
                 if (!board.placeChecker(Integer.parseInt(inputVal), new Checker('R')))
                     continue;
-                if (board.testIfWin(Integer.parseInt(inputVal), board.lowestEmptySpot(Integer.parseInt(inputVal) +
-                        1), 'R')) {
+                else
+                    board.printBoard();
+                if (board.testIfWin(board.lowestEmptySpot(Integer.parseInt(inputVal)) + 1, Integer.parseInt(inputVal), 'R')) {
+                    System.out.println("The red player won.");
                     win = true;
                 }
-                redturn = false;
-            } else {
+                redTurn = false;
+            }
+            //Yellow
+            else {
                 if (!board.placeChecker(Integer.parseInt(inputVal), new Checker('Y')))
                     continue;
-                if (board.testIfWin(Integer.parseInt(inputVal), board.lowestEmptySpot(Integer.parseInt(inputVal) +
-                        1), 'Y')) {
+                else
+                    board.printBoard();
+                if (board.testIfWin(board.lowestEmptySpot(Integer.parseInt(inputVal)) + 1, Integer.parseInt(inputVal), 'Y')) {
+                    System.out.println("The yellow player won.");
                     win = true;
                 }
-                redturn = true;
+                redTurn = true;
             }
-
-
         }
         input.close();
     }
@@ -111,7 +116,7 @@ class GameBoard {
             }
             System.out.print("\n");
         }
-        System.out.println("………………………………………");
+        System.out.println("………………………………");
     }
 
     public int lowestEmptySpot(int column) {
@@ -150,20 +155,27 @@ class GameBoard {
                 int[] directionCoord = directionTranslate(row, column, i);
                 if (directionCoord[0] != -1) {
                     if (board[directionCoord[0]][directionCoord[1]].getType() == type) {
+                        System.out.println(adjacent+": REC 1 detection "+type+" at "+ i + " ("+ directionCoord[0]+", "+ directionCoord[1] +")");
                         testNextToo(directionCoord[0], directionCoord[1], ++adjacent, i, type);
                     }
                 }
-
             }
-        } else {
+        } else if (row != -1 && column != -1) {
             int[] directionCoord = directionTranslate(row, column, direction);
-            testNextToo(directionCoord[0], directionCoord[1], ++adjacent, direction, type);
+            if (directionCoord[0] != -1) {
+                if (board[directionCoord[0]][directionCoord[1]].getType() == type) {
+                    System.out.println(adjacent+": REC 1 detection "+type+" at "+ direction + " ("+ directionCoord[0]+", "+ directionCoord[1] +")");
+                    testNextToo(directionCoord[0], directionCoord[1], ++adjacent, direction, type);
+                }
+            }
         }
         return adjacent;
     }
 
     public boolean testIfWin(int row, int column, char type) {
-        if (testNextToo(row, column, 0, -1, type) >= 3) {
+        int val = testNextToo(row, column, 0, -1, type);
+        System.out.println("val = " + val);
+        if (val >= 3) {
             return true;
         }
         return false;
@@ -180,27 +192,22 @@ class GameBoard {
      * (+1, -1) (+1, col) (+1, +1)
      */
     private int[] directionTranslate(int row, int column, int direction) {
-        //row - 1
         if (direction == 1 && row != 0 && column != 0) {
             return new int[]{row - 1, column - 1};
         } else if (direction == 2 && row != 0) {
             return new int[]{row - 1, column};
         } else if (direction == 3 && row != 0 && column != board[0].length - 1) {
             return new int[]{row - 1, column + 1};
-        }
-        //row
-        else if (direction == 4 && column != 0) {
+        } else if (direction == 4 && column != board[0].length - 1) {
             return new int[]{row, column + 1};
-        } else if (direction == 5 && column != board[0].length - 1) {
-            return new int[]{row, column - 1};
-        }
-        //row + 1
-        else if (direction == 6 && row != board.length - 1 && column != 0) {
-            return new int[]{row + 1, column - 1};
-        } else if (direction == 7 && row != board.length - 1) {
-            return new int[]{row + 1, column};
-        } else if (direction == 8 && row != board.length - 1 && column != board[0].length - 1) {
+        } else if (direction == 5 && column != board[0].length - 1 && row != board.length - 1) {
             return new int[]{row + 1, column + 1};
+        } else if (direction == 6 && row != board.length - 1 && row != board.length - 1) {
+            return new int[]{row + 1, column};
+        } else if (direction == 7 && row != board.length - 1 && column != 0) {
+            return new int[]{row + 1, column - 1};
+        } else if (direction == 8 && column != 0) {
+            return new int[]{row, column - 1};
         } else {
             return new int[]{-1, -1};
         }
