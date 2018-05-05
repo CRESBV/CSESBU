@@ -1,7 +1,8 @@
 public class Testing {
-    public int id;
-    public void m1() {
-        System.out.println("nerd says hi");
+    public static void main(String[] args) {
+        for (int i = 0; i < 31; i++) {
+            System.out.print("…");
+        }
     }
 }
 
