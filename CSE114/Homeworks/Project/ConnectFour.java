@@ -113,6 +113,7 @@ class Checker {
  */
 class GameBoard {
     static Checker[][] board = new Checker[6][7];
+    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     /**
      * constructor
@@ -137,11 +138,9 @@ class GameBoard {
             }
             System.out.print("\n");
         }
-        // Allows for full bar even on different screen resolutions
+        // Allows for full bar even on different screen resolutions 1920x1080 and 2880x1800 supported default to
+        // 1920x1080
         try {
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-            System.out.println("screenSize.width = " + screenSize.width);
-            System.out.println("screenSize.height = " + screenSize.height);
             if (screenSize.width == 1920) {
                 System.out.println("………………………………");
             } else {
@@ -154,10 +153,12 @@ class GameBoard {
 
     /**
      * @param column
-     * @return Value of the lowest empty row in specified column
+     * @return Value of the lowest empty row in specified column if column full return -1
+     * This is also the method sends the error message if val is not between 0-6
      */
     public int lowestEmptySpot(int column) {
         try {
+            //interating from bottom to top looking for ' ' checker
             for (int i = board.length - 1; i >= 0; i--) {
                 if (board[i][column].getType() == ' ') {
                     return i;
@@ -175,6 +176,7 @@ class GameBoard {
      * @param column
      * @param checker
      * @return bool based on Whether or not a checker had been placed
+     * Also sends out the Column full error should a player try to put a checker in a full column
      */
     public boolean placeChecker(int column, Checker checker) {
         int lowestEmpty = lowestEmptySpot(column);
@@ -187,6 +189,8 @@ class GameBoard {
     }
 
     /**
+     * PROBLEM IS PROBABLY HERE!!! Realistically I overlooked something with how stacks work
+     *
      * @param row
      * @param column
      * @param adjacent
@@ -196,7 +200,6 @@ class GameBoard {
      * row, column designate origin
      * adjacent designates how many in a row have been found start with 0
      * direction forces which direction to look to -1 if search all
-     * <p>
      * Direction:
      * 1 2 3
      * 8 X 4
@@ -204,24 +207,31 @@ class GameBoard {
      */
     private int testNextToo(int row, int column, int adjacent, int direction, char type) {
         if (direction == -1) {
-            for (int i = 1; i < 9; i++) {
+            //iterate through all 8 directions
+            for (int i = 1; i <= 8; i++) {
                 int[] directionCoord = directionTranslate(row, column, i);
+                //if direction is not out of bounds
                 if (directionCoord[0] != -1) {
+                    // if checker at target pos is of same type
                     if (board[directionCoord[0]][directionCoord[1]].getType() == type) {
                         //temp call out
-                        System.out.println(adjacent + ": REC 1 detection " + board[directionCoord[0]][directionCoord[1]].getType() + " at " + i + " (" + directionCoord[0] + ", " + directionCoord[1] + ")");
-                        System.out.println("Rec Call: row " + directionCoord[0] + ", column " + directionCoord[1] +
-                                ", adjacent " + ++adjacent + ", direction " + i + ", type " + type);
+                        System.out.println(adjacent + ": REC 1 detection " + board[directionCoord[0]][directionCoord[1]].getType() + " at " + i + " (" + directionCoord[0] + ", " + directionCoord[1] + ")" + " rel to (" + row + ", " + column + ")");
+                        System.out.println("Rec 1 Call: row " + directionCoord[0] + ", column " + directionCoord[1] +
+                                ", adjacent " + (adjacent + 1) + ", direction " + i + ", type " + type);
+                        //If checker same type call method again but with that checker as origin
                         testNextToo(directionCoord[0], directionCoord[1], ++adjacent, i, type);
                     }
                 }
             }
-        } else if (row != -1 && column != -1) {
+        } else {
             int[] directionCoord = directionTranslate(row, column, direction);
             if (directionCoord[0] != -1) {
                 if (board[directionCoord[0]][directionCoord[1]].getType() == type) {
                     //temp call out
-                    System.out.println(adjacent + ": REC 1 detection " + type + " at " + direction + " (" + directionCoord[0] + ", " + directionCoord[1] + ")");
+                    System.out.println(adjacent + ": REC 2 detection " + board[directionCoord[0]][directionCoord[1]].getType() + " at " + direction + " (" + directionCoord[0] + ", " + directionCoord[1] + ")" + " rel to (" + row + ", " + column + ")");
+                    System.out.println("Rec 2 Call: row " + directionCoord[0] + ", column " + directionCoord[1] + ", " +
+                            "adjacent " + (adjacent + 1) + ", direction " + direction + ", type " + type);
+                    //If checker same type call method again but with that checker as origin
                     testNextToo(directionCoord[0], directionCoord[1], ++adjacent, direction, type);
                 }
             }
@@ -249,7 +259,7 @@ class GameBoard {
      * @param row
      * @param column
      * @param direction
-     * @return position on board based on origin and direction
+     * @return position on board based on origin and direction return (-1, -1) if out of bounds
      * Direction:
      * 1 2 3
      * 8 X 4
