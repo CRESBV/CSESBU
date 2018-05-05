@@ -1,9 +1,4 @@
-import com.sun.org.apache.xerces.internal.impl.dv.xs.IntegerDV;
-
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -306,10 +301,7 @@ class GameBoard {
         }
         // /
         for (int j = 3; j <= board[0].length - 1; j++) {
-            for (int i = 0; i <= board.length - 1; i++) {
-                if (board[i][j].getType() != ' ') {
-                    System.out.println("Type: " + board[i][j].getType() + " ("+i+", "+j+")");
-                }
+            for (int i = 0; i <= board.length - 4; i++) {
                 if (board[i][j].getType() == board[i + 1][j - 1].getType() &&
                         board[i][j].getType() == board[i + 2][j - 2].getType() &&
                         board[i][j].getType() == board[i + 3][j - 3].getType() &&
