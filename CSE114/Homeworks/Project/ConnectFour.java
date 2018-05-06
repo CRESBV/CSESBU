@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.Scanner;
 
 /**
@@ -55,7 +54,22 @@ public class ConnectFour {
  */
 class GameBoard {
     static char[][] board = new char[6][7];
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    static String baseline;
+
+    static {
+        try {
+            String operatingSystem = System.getProperty("os.name");
+            System.out.println(operatingSystem);
+            if (operatingSystem.contains("Windows")) {
+                baseline = "  ………………………………";
+            } else if (operatingSystem.contains("Mac")) {
+                baseline = "  ………………………………………";
+            } else
+                baseline = "  ………………………………";
+        } catch (Exception e) {
+            baseline = "  ………………………………";
+        }
+    }
 
 
     /**
@@ -86,17 +100,10 @@ class GameBoard {
             }
             System.out.print("\n");
         }
-        // Allows for full bar even on different screen resolutions 1920x1080 and 2880x1800 supported default to
-        // 1920x1080
-        try {
-            if (screenSize.width == 1920) {
-                System.out.println("………………………………");
-            } else {
-                System.out.println("  ………………………………………");
-            }
-        } catch (final Exception e) {
-            System.out.println("………………………………");
-        }
+        // This can be a bit odd based on the screen resolution I have set it so that on my mac it will do more to
+        // compensate for higher resolution than my desktop
+        System.out.println(baseline);
+
     }
 
     /**
