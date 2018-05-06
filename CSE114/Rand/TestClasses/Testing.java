@@ -1,8 +1,8 @@
 public class Testing {
+ static char test;
+
     public static void main(String[] args) {
-        for (int i = 0; i < 31; i++) {
-            System.out.print("…");
-        }
+        System.out.println("V"+test+"V");
     }
 }
 
