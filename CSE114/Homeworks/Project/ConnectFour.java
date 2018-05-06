@@ -10,34 +10,37 @@ import java.util.Scanner;
 
 public class ConnectFour {
     public static void main(String[] args) {
-        GameBoard board = new GameBoard();
-        board.printBoard();
         Scanner input = new Scanner(System.in);
         boolean win = false;
-        for (int i = 0; i < board.getBoardSize(); i++) {
-            boolean redTurn = (i % 2 == 0);
-            int dropColumn = -1;
-            //New line for formatting
-            System.out.println();
-            //Clean input
-            while (dropColumn < 0) {
-                System.out.print((redTurn) ? "Drop a red disk at column (0 - 6): " : "Drop a yellow disk at column (0 " + "-" + " 6): ");
-                try {
-                    String inputVal = input.nextLine();
-                    int val = Integer.parseInt(inputVal);
-                    if ((!(val >= 0) && !(val <= 6))) throw new IllegalStateException();
-                    if (board.lowestEmptySpot(val) == -1) throw new IllegalStateException();
-                    dropColumn = val;
-                } catch (Exception NFEX) {
-                    System.out.println("Put pieces in empty slots!!!!");
+        while (!win) {
+            GameBoard board = new GameBoard();
+            board.printBoard();
+            for (int i = 0; i < board.getBoardSize(); i++) {
+                boolean redTurn = (i % 2 == 0);
+                int dropColumn = -1;
+                //New line for formatting
+                System.out.println();
+                //Clean input
+                while (dropColumn < 0) {
+                    System.out.print((redTurn) ? "Drop a red disk at column (0 - 6): " : "Drop a yellow disk at column (0 " + "-" + " 6): ");
+                    try {
+                        String inputVal = input.nextLine();
+                        int val = Integer.parseInt(inputVal);
+                        if ((!(val >= 0) && !(val <= 6))) throw new IllegalStateException();
+                        if (board.lowestEmptySpot(val) == -1) throw new IllegalStateException();
+                        dropColumn = val;
+                    } catch (Exception NFEX) {
+                        System.out.println("Put pieces in empty slots!!!!");
+                    }
+                }
+                int row = board.placeChecker(dropColumn, (redTurn) ? 'R' : 'Y');
+                board.printBoard();
+                if (win = board.testIfWin(row, dropColumn)) {
+                    System.out.println("The " + ((redTurn) ? "Red" : "Yellow") + " player won.");
+                    break;
                 }
             }
-            int row = board.placeChecker(dropColumn, (redTurn) ? 'R' : 'Y');
-            board.printBoard();
-            if (board.testIfWin(row, dropColumn)) {
-                System.out.println("The " + ((redTurn) ? "Red" : "Yellow") + " player won.");
-                break;
-            }
+            System.out.println("Resetting Board");
         }
         input.close();
     }
