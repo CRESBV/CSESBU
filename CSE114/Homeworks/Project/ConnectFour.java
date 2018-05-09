@@ -30,7 +30,7 @@ public class ConnectFour {
                         if (board.lowestEmptySpot(val) == -1) throw new IllegalStateException();
                         dropColumn = val;
                     } catch (Exception NFEX) {
-                        System.out.println("Put pieces in empty slots!!!!");
+                        System.out.println("Column full or incorrect input");
                     }
                 }
                 int row = board.placeChecker(dropColumn, (redTurn) ? 'R' : 'Y');
@@ -40,7 +40,9 @@ public class ConnectFour {
                     break;
                 }
             }
-            System.out.println("Resetting Board");
+            if (!win) {
+                System.out.println("Resetting Board");
+            }
         }
         input.close();
     }
