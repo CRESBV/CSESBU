@@ -156,11 +156,16 @@ class GameBoard {
      * @return
      */
     public boolean testIfWin(int row, int column) {
+        System.out.println("row = " + row);
+        System.out.println("column = " + column);
         int[][] posDirection = {{1, 0}, {1, 1}, {0, 1}, {1, -1}};
         char checkerColor = board[row][column];
+        System.out.println("checkerColor = " + checkerColor);
         for (int[] direction : posDirection) {
             int posSum = runLength(row, column, direction[0], direction[1], checkerColor);
+            System.out.println("posSum = " + posSum);
             int negSum = runLength(row, column, -1 * direction[0], -1 * direction[1], checkerColor);
+            System.out.println("negSum = " + negSum);
             if (posSum + negSum >= 3) {
                 return true;
             }

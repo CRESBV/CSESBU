@@ -1,0 +1,1 @@
+\"n(A) Add Course\n(G) Get Course\n(R) Remove Course\n(P) Print Courses in Planner\n(F) Filter by Department Code\n(L) Look For Course\n(S) Size\n(B) Backup\n(PB) Print Courses in Backup\n(RB) Revert to Backup\n(Q) Quit"
