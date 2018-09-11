@@ -119,4 +119,22 @@ public class Course {
                 .getDepartment().equals(department) && ((Course) obj).getCode() == code && ((Course) obj).getSection
                 () == section && ((Course) obj).getInstructor().equals(instructor));
     }
+
+    public String toString() {
+        return courseName + spaceGenerator(26 - courseName.length()) + department + spaceGenerator(12 - department
+                .length()) + code + spaceGenerator(9 - String.valueOf(code).length()) + ((section < 10) ?
+                "0" : "") + section + " " + instructor;
+    }
+
+    //No. Course Name               Department Code Section Instructor
+//-------------------------------------------------------------------------------
+//  2 System Fundamentals       CSE         220      01 Kevin McDonnell
+//  3 Data Structures           CSE         214      01 Ahmad Esmaili
+    public String spaceGenerator(int num) {
+        String out = "";
+        for (int i = 0; i < num; i++) {
+            out += " ";
+        }
+        return out;
+    }
 }
