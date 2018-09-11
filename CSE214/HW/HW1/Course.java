@@ -38,6 +38,7 @@ public class Course {
     }
 
     /**
+     * gets Course name
      * @return courseName
      */
     public String getCourseName() {
@@ -45,6 +46,7 @@ public class Course {
     }
 
     /**
+     * sets course name
      * @param courseName
      */
     public void setCourseName(String courseName) {
@@ -59,6 +61,7 @@ public class Course {
     }
 
     /**
+     * sets department
      * @param department
      */
     public void setDepartment(String department) {
@@ -66,6 +69,7 @@ public class Course {
     }
 
     /**
+     * get code
      * @return code
      */
     public int getCode() {
@@ -73,6 +77,7 @@ public class Course {
     }
 
     /**
+     * set code
      * @param code
      */
     public void setCode(int code) {
@@ -80,6 +85,7 @@ public class Course {
     }
 
     /**
+     * get section
      * @return section
      */
     public byte getSection() {
@@ -87,6 +93,7 @@ public class Course {
     }
 
     /**
+     * set section
      * @param section
      */
     public void setSection(byte section) {
@@ -94,6 +101,7 @@ public class Course {
     }
 
     /**
+     * get instructor
      * @return instructor
      */
     public String getInstructor() {
@@ -101,6 +109,7 @@ public class Course {
     }
 
     /**
+     * set instructor
      * @param instructor
      */
     public void setInstructor(String instructor) {
@@ -108,18 +117,28 @@ public class Course {
     }
 
     /**
+     * deep clone object
      * @return
      */
     public Object clone() {
         return new Course(courseName, department, code, section, instructor);
     }
 
+    /**
+     * test if object is equal to arg object
+     * @param obj
+     * @return
+     */
     public boolean equals(Object obj) {
         return (obj instanceof Course && ((Course) obj).getCourseName().equals(courseName) && ((Course) obj)
                 .getDepartment().equals(department) && ((Course) obj).getCode() == code && ((Course) obj).getSection
                 () == section && ((Course) obj).getInstructor().equals(instructor));
     }
 
+    /**
+     * create string of attributes of course
+     * @return
+     */
     public String toString() {
         return courseName + spaceGenerator(26 - courseName.length()) + department + spaceGenerator(12 - department
                 .length()) + code + spaceGenerator(9 - String.valueOf(code).length()) + ((section < 10) ?
@@ -130,6 +149,13 @@ public class Course {
 //-------------------------------------------------------------------------------
 //  2 System Fundamentals       CSE         220      01 Kevin McDonnell
 //  3 Data Structures           CSE         214      01 Ahmad Esmaili
+
+    /**
+     * generate set number of spaces and output as string.
+     * TODO: use printf...
+     * @param num
+     * @return
+     */
     public String spaceGenerator(int num) {
         String out = "";
         for (int i = 0; i < num; i++) {
