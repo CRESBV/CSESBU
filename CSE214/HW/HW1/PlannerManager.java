@@ -6,8 +6,8 @@
 import java.util.Scanner;
 
 public class PlannerManager {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[31m";
     Planner mainPlanner = new Planner();
     Planner backup = new Planner();
 
@@ -20,7 +20,7 @@ public class PlannerManager {
                 quit = pm.parser();
             } catch (InputElementException iee) {
                 System.out.println(ANSI_RED + "Bad input please re-enter\n" + ANSI_RESET);
-            } catch (FullPlannerException e) {
+            } catch (BadInputValue e) {
                 System.out.println(ANSI_RED + "Planner full\n" + ANSI_RESET);
             }
         }
@@ -161,9 +161,9 @@ public class PlannerManager {
      *
      * @return bool on if quit
      * @throws InputElementException
-     * @throws FullPlannerException
+     * @throws BadInputValue
      */
-    public boolean parser() throws InputElementException, FullPlannerException {
+    public boolean parser() throws InputElementException, BadInputValue {
         Scanner input = new Scanner(System.in);
         while (!input.hasNextLine()) ;
         String command = input.nextLine();

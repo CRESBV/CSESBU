@@ -1,15 +1,19 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Tester {
-    private static Planner mainPlanner = new Planner();
+    private static final String[] BLOCK_TYPES = {"def", "for", "while", "if", "else", "elif"};
 
     public static void main(String[] args) {
-        Course test = new Course("hello", "cse", 214, (byte) 1, "chicken");
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(1);
+        System.out.println("arrayList = " + arrayList);
+        arrayList.add(2);
+        System.out.println("arrayList = " + arrayList);
+        arrayList.remove(arrayList.size()-1);
+        System.out.println("arrayList = " + arrayList);
 
-        try {
-            mainPlanner.addCourse(test,1 );
-        } catch (FullPlannerException e) {
-            System.out.println("oh no");
-        }
-        mainPlanner.printAllCourses();
     }
-}
 
+}

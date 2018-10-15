@@ -1,0 +1,34 @@
+Initialize stack to an empty stack of CodeBlocks.
+    Open file using filename.
+    while file has lines
+         line = next line in file.
+        if line is not empty and line does not start with '#'
+             indents = number of spaces in line / SPACES_COUNT.
+            while indents is less than size of stack
+                if indents is 0
+                     Close file and return the total complexity of stack.top.
+                else
+                     oldTop = stack.pop()
+                     oldTopComplexity = total complexity of oldTop
+                    if oldTopComplexity is higher order than stack.top's highest sub-complexity
+                         stack.top's highest sub-complexity = oldTopComplexity
+            if line contains a keyword
+                 keyword = keyword in line.
+                if keyword is "for"
+                    Determine the complexity at end of line ("N:" or "log_N:")
+                    Create new O(n) or O(log(n)) CodeBlock and push onto stack.
+                else if keyword is "while"
+                     loopVariable = variable being updated (first token after "while").
+                    Create new O(1) CodeBlock with loopVariable and push onto stack.
+                else 
+                    Create new O(1) CodeBlock and push onto the stack.
+            else if stack.top is a "while" block and line updates stack.top's loopVariable 
+                Update the blockComplexity of stack.top.
+        else 
+            Ignore line.
+    while size of stack > 1
+        oldTop = stack.pop()
+        oldTopComplexity = total complexity of oldTop
+        if oldTopComplexity is higher order than stack.top's highest sub-complexity
+             stack.top's highest sub-complexity = oldTopComplexity
+    Return stack.pop(). 

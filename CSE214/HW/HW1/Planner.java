@@ -8,8 +8,8 @@
  * your code). The class will be based on the following ADT specification:
  */
 public class Planner {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[31m";
     private final short MAX_COURSES = 50;
     private Course[] courseList;
 
@@ -73,7 +73,7 @@ public class Planner {
         for (int i = 0; i < size(); i++) {
             try {
                 backup.addCourse((Course) courseList[i].clone());
-            } catch (FullPlannerException fpe) {
+            } catch (BadInputValue fpe) {
                 System.out.println(ANSI_RED + "Issue with original mainPlanner size" + ANSI_RESET);
             }
         }
@@ -86,11 +86,11 @@ public class Planner {
      * @param newCourse
      * @param position
      * @throws IllegalArgumentException
-     * @throws FullPlannerException
+     * @throws BadInputValue
      */
-    public void addCourse(Course newCourse, int position) throws IllegalArgumentException, FullPlannerException {
+    public void addCourse(Course newCourse, int position) throws IllegalArgumentException, BadInputValue {
         if (size() == MAX_COURSES) {
-            throw new FullPlannerException();
+            throw new BadInputValue();
         }
         Course[] temp = new Course[size() + 1];
         boolean newCourseAdded = false;
@@ -118,9 +118,9 @@ public class Planner {
      * add course to end of planner
      *
      * @param newCourse
-     * @throws FullPlannerException
+     * @throws BadInputValue
      */
-    public void addCourse(Course newCourse) throws FullPlannerException {
+    public void addCourse(Course newCourse) throws BadInputValue {
         addCourse(newCourse, size() + 1);
     }
 

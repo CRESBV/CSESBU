@@ -54,6 +54,7 @@ public class Course {
     }
 
     /**
+     * get department
      * @return department
      */
     public String getDepartment() {

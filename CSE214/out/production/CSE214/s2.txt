@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+
+% ------------------------------------------------------ %
+%   Packages and Commands Setup                          %
+% ------------------------------------------------------ %
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{nd3}
+\graphicspath{ {figures/} }
+\usepackage[letterpaper, margin=1in]{geometry}
+
+\newcommand{\problem}[1]{\textbf{Problem {#1}}  \medskip }
+\newcommand{\reffig}[1]{Figure~\ref{#1}}
+\newcommand{\reftable}[1]{Table~\ref{#1}}
+
+% ------------------------------------------------------ %
+%   Title                                                %
+% ------------------------------------------------------ %
+\title{CSE215 - Homework 1}        % Change your homework title
+\author{Edward Buckler \\ 111628438 \\ R02} % Your name \\ ID \\ Recitation number, do not delete "\\" inside of the parenthesis
+\date{September 30th 2018}          % Due date
+% Section 2.1: 42
+% Section 2.2: 11
+% Section 2.3: 9,28 and 42
+% Section 3.3: 41.h
+
+\begin{document}
+
+\maketitle
+
+% ------------------------------------------------------ %
+%   Type your answer below this                          %
+% ------------------------------------------------------ %
+\problem{5.3} % Put the problem number inside of the brackets
+
+% Your Answer
+The following are some statements you'll probably use while you answer your homework. This is a statement with inline math statements, such as $\rightarrow$, or $C^{ab}_{cd}$. Besides, you can also create a separate math statement without normal one, like this.
+$$E=MC^2$$
+
+
+Separate your paragraphs with a blank line. This statement refers to \reffig{fig:lena}. This statement refers to \reftable{table:first-table}.
+
+
+% Example of including images
+% --------------------------------------------------------
+\begin{figure}[ht]        % h stands for adding it here, t is used to handle the case when there's no space
+\centering
+\includegraphics[width=0.8\textwidth]{lena.jpg}
+\caption{ShareLaTeX logo} % Your description of the figure
+\label{fig:lena}
+\end{figure}
+
+
+
+% Example of including a table
+% Ref: https://www.tablesgenerator.com/
+% Once you create a table, remember to
+%   1. change its caption
+%   2. change its lable (for your reference)
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{table:first-table}
+\begin{tabular}{lll}
+p & q & p v q \\
+F & F & F     \\
+F & T & T     \\
+T & F & T     \\
+T & T & T
+\end{tabular}
+\end{table}
+
+
+Below is an example to add a inference.
+% Example of including an inference
+% for each \ndl:
+%   1st argument - your reference (it could be empty)
+%   2nd argument - your statement
+%   3rd argument - name of rule
+% --------------------------------------------------------
+\begin{ND}[Proof][][][][0.8\linewidth]
+\ndl{1}{$A$}{Premise}
+\ndl{2}{$A \rightarrow B$}{Modus ponens}
+\ndl{1,2}{$B$}{$\rightarrow$-Elim (1, 2)}
+\ndl{}{$C$}{conclusion}
+\end{ND}
+
+% Homework problems: \\
+% Section 2.1: 42 \\
+% Section 2.2: 11 \\
+% Section 2.3: 9,28 and 42 \\
+% Section 3.3: 41.h \\
+
+\begin{table}[h]
+\centering
+\caption{Problem 2.1.42 (contradiction)}
+\label{table:p42-table}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+p & q & r & \sim q & \sim p & (q \wedge r) & (\sim p \wedge q) & (\sim p \wedge q) \wedge (q \wedge r) & ((\sim p \wedge q) \wedge (q \wedge r)) \wedge \sim q \\
+0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 1 \\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+0 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 \\
+1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+1 & 0 & 1 & 1 & 0 & 1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+1 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Problem 2.2.11}
+\label{table:p42-table}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+p & q & r & (q \rightarrow r) & (p \rightarrow (q \rightarrow r)) & (p \wedge q) & ((p \wedge q) \rightarrow r) & (p \rightarrow (q \rightarrow r)) ↔ ((p \wedge q) \rightarrow r) \\
+1 & 1 & 1 & 0 & 0 & 1 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \\
+1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 1 & 1 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Problem 2.3.9 false because of true premises but false conclusion}
+\label{table:p42-table}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+p & q & r & \sim r & \sim q & \sim q \rightarrow  p & p \vee \sim q & p ∧ q \rightarrow  \sim r & result\\
+0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 &  \\
+0 & 0 & 1 & 0 & 1 & 0 & 1 & 1 &  \\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 &  \\
+0 & 1 & 1 & 0 & 0 & 1 & 0 & 1 &  \\
+1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 & 0 \\
+1 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+1 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{flushleft}
+If there are as many rational numbers as there are
+irrational numbers, then the set of all irrational numbers
+is infinite.
+The set of all irrational numbers is infinite.
+\therefore There are as many rational numbers as there are irrational
+numbers.
+\end{flushleft}
+
+\end{document}
