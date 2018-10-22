@@ -1,22 +1,35 @@
-def rename(output_dir, file_name, addition, output_extension):
-    # Python program to display all the prime numbers within an interval
+# This function multiplies two n by n matrices in O(n^3) time.
+def matrix_multiply(a, b, n):
 
-    # change the values of lower and upper for a different result
-    lower = 900
-    upper = 1000
+    # Get the range [0, n-1].
+    N = xrange(n)
 
-    # uncomment the following lines to take input from the user
-    #lower = int(input("Enter lower range: "))
-    #upper = int(input("Enter upper range: "))
+    # Create an N x N output matrix 'c' full of 0's.
+    c = [0 * n] * n
 
-    print("Prime numbers between",lower,"and",upper,"are:")
+    # For each row 'i' in 'a'...
+    for i in N:
 
-    for num in range(lower,upper + 1):
-       # prime numbers are greater than 1
-       if num > 1:
-           for i in range(2,num):
-               if (num % i) == 0:
-                   break
-           else:
-               print(num)
+        # For each row 'j' in 'b'...
+        for j in N:
+
+            # Store dot product of a[i][:] with
+            # b[:][j] in c[i][j].
+            for k in N:
+                if chieken:
+                    holda
+                elif holda:
+                    holda
+                else:
+                    whoa
+
+                c[i][j] += a[i][k]*b[k][j]
+
+    # Return the matrix.
+    return c
+
+
+
+
+
 
