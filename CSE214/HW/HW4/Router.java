@@ -8,8 +8,6 @@
  * network.
  */
 
-import sun.invoke.empty.Empty;
-
 import java.util.ArrayList;
 
 public class Router extends ArrayList {
@@ -24,6 +22,24 @@ public class Router extends ArrayList {
     public Router(int id, int maxBufferSize) {
         this.id = id;
         this.maxBufferSize = maxBufferSize;
+    }
+
+    public static int sendPacketTo(ArrayList<Router> routers) throws RouterEmpty, RouterFull {
+        if (routers.isEmpty()) {
+            throw new RouterEmpty();
+        } else {
+            Router max = routers.get(0);
+            for (int i = 1; i < routers.size(); i++) {
+                if (routers.get(i).getMaxBufferSize() - routers.get(i).size() > max.getMaxBufferSize() - max.size()) {
+                    max = routers.get(i);
+                }
+            }
+            if (max.getMaxBufferSize() - max.size() == 0) {
+                throw new RouterFull();
+            } else {
+                return max.getId();
+            }
+        }
     }
 
     public void enqueue(Packet packet) {
@@ -55,24 +71,6 @@ public class Router extends ArrayList {
 //    TODO: make official
     public String toString() {
         return super.toString();
-    }
-
-    public static int sendPacketTo(ArrayList<Router> routers) throws RouterEmpty, RouterFull {
-        if (routers.isEmpty()) {
-            throw new RouterEmpty();
-        } else {
-            Router max = routers.get(0);
-            for (int i = 1; i < routers.size(); i++) {
-                if (routers.get(i).getMaxBufferSize() - routers.get(i).size() > max.getMaxBufferSize() - max.size()) {
-                    max = routers.get(i);
-                }
-            }
-            if (max.getMaxBufferSize() - max.size() == 0) {
-                throw new RouterFull();
-            } else {
-                return max.getId();
-            }
-        }
     }
 
     public int getId() {
