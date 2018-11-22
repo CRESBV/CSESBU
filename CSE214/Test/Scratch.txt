@@ -1,34 +1,27 @@
-Initialize stack to an empty stack of CodeBlocks.
-    Open file using filename.
-    while file has lines
-         line = next line in file.
-        if line is not empty and line does not start with '#'
-             indents = number of spaces in line / SPACES_COUNT.
-            while indents is less than size of stack
-                if indents is 0
-                     Close file and return the total complexity of stack.top.
-                else
-                     oldTop = stack.pop()
-                     oldTopComplexity = total complexity of oldTop
-                    if oldTopComplexity is higher order than stack.top's highest sub-complexity
-                         stack.top's highest sub-complexity = oldTopComplexity
-            if line contains a keyword
-                 keyword = keyword in line.
-                if keyword is "for"
-                    Determine the complexity at end of line ("N:" or "log_N:")
-                    Create new O(n) or O(log(n)) CodeBlock and push onto stack.
-                else if keyword is "while"
-                     loopVariable = variable being updated (first token after "while").
-                    Create new O(1) CodeBlock with loopVariable and push onto stack.
-                else 
-                    Create new O(1) CodeBlock and push onto the stack.
-            else if stack.top is a "while" block and line updates stack.top's loopVariable 
-                Update the blockComplexity of stack.top.
-        else 
-            Ignore line.
-    while size of stack > 1
-        oldTop = stack.pop()
-        oldTopComplexity = total complexity of oldTop
-        if oldTopComplexity is higher order than stack.top's highest sub-complexity
-             stack.top's highest sub-complexity = oldTopComplexity
-    Return stack.pop(). 
+Exception in thread "main" big.data.DataInstantiationException: No field named "" was found in {_<null> listing/auction_info/current_bid: [_<null,listing/auction_info/current_bid> <null>]
+listing/auction_info/started_at: [_<null,listing/auction_info/started_at> <null>]
+listing/payment_types: [_<null,listing/payment_types> <null>]
+listing/item_info/hard_drive: [_<null,listing/item_info/hard_drive> <null>]
+listing/auction_info/id_num: [_<null,listing/auction_info/id_num> <null>]
+listing/auction_info/location: [_<null,listing/auction_info/location> <null>]
+listing/auction_info: [_<null,listing/auction_info> {_<null> high_bidder/bidder_name: <high_bidder/bidder_name>, time_left: <time_left>, num_items: <num_items>, high_bidder/bidder_rating: <high_bidder/bidder_rating>, id_num: <id_num>, started_at: <started_at>, closed: <closed>, location: <location>, opened: <opened>, current_bid: <current_bid>, num_bids: <num_bids>, high_bidder: {_<null> bidder_name: <bidder_name>, bidder_rating: <bidder_rating>}}]
+listing/seller_info/seller_name: [_<null,listing/seller_info/seller_name> <null>]
+listing/auction_info/time_left: [_<null,listing/auction_info/time_left> <null>]
+listing/shipping_info: [_<null,listing/shipping_info> <null>]
+listing/auction_info/num_bids: [_<null,listing/auction_info/num_bids> <null>]
+listing/item_info/memory: [_<null,listing/item_info/memory> <null>]
+listing/auction_info/high_bidder/bidder_rating: [_<null,listing/auction_info/high_bidder/bidder_rating> <null>]
+listing: [_<null,listing> {_<null> shipping_info: <shipping_info>, item_info: {_<null> memory: <memory>, cpu: <cpu>, description: <description>, hard_drive: <hard_drive>}, bid_history/quantity: <bid_history/quantity>, auction_info/started_at: <auction_info/started_at>, auction_info/time_left: <auction_info/time_left>, item_info/description: <item_info/description>, payment_types: <payment_types>, auction_info/current_bid: <auction_info/current_bid>, item_info/memory: <item_info/memory>, item_info/cpu: <item_info/cpu>, auction_info/high_bidder: {_<null> bidder_name: <bidder_name>, bidder_rating: <bidder_rating>}, auction_info/opened: <auction_info/opened>, auction_info/num_bids: <auction_info/num_bids>, auction_info: {_<null> high_bidder/bidder_name: <high_bidder/bidder_name>, time_left: <time_left>, num_items: <num_items>, high_bidder/bidder_rating: <high_bidder/bidder_rating>, id_num: <id_num>, started_at: <started_at>, closed: <closed>, location: <location>, opened: <opened>, current_bid: <current_bid>, num_bids: <num_bids>, high_bidder: {_<null> bidder_name: <bidder_name>, bidder_rating: <bidder_rating>}}, bid_history: {_<null> quantity: <quantity>, highest_bid_amount: <highest_bid_amount>}, auction_info/high_bidder/bidder_rating: <auction_info/high_bidder/bidder_rating>, auction_info/high_bidder/bidder_name: <auction_info/high_bidder/bidder_name>, item_info/hard_drive: <item_info/hard_drive>, auction_info/id_num: <auction_info/id_num>, auction_info/location: <auction_info/location>, seller_info/seller_rating: <seller_info/seller_rating>, seller_info/seller_name: <seller_info/seller_name>, seller_info: {_<null> seller_name: <seller_name>, seller_rating: <seller_rating>}, auction_info/closed: <auction_info/closed>, bid_history/highest_bid_amount: <bid_history/highest_bid_amount>, auction_info/num_items: <auction_info/num_items>}]
+listing/auction_info/opened: [_<null,listing/auction_info/opened> <null>]
+listing/bid_history/quantity: [_<null,listing/bid_history/quantity> <null>]
+listing/item_info/description: [_<null,listing/item_info/description> <null>]
+listing/bid_history/highest_bid_amount: [_<null,listing/bid_history/highest_bid_amount> <null>]
+listing/auction_info/high_bidder/bidder_name: [_<null,listing/auction_info/high_bidder/bidder_name> <null>]
+listing/bid_history: [_<null,listing/bid_history> {_<null> quantity: <quantity>, highest_bid_amount: <highest_bid_amount>}]
+listing/item_info: [_<null,listing/item_info> {_<null> memory: <memory>, cpu: <cpu>, description: <description>, hard_drive: <hard_drive>}]
+listing/seller_info/seller_rating: [_<null,listing/seller_info/seller_rating> <null>]
+listing/auction_info/num_items: [_<null,listing/auction_info/num_items> <null>]
+listing/auction_info/closed: [_<null,listing/auction_info/closed> <null>]
+listing/auction_info/high_bidder: [_<null,listing/auction_info/high_bidder> {_<null> bidder_name: <bidder_name>, bidder_rating: <bidder_rating>}]
+listing/item_info/cpu: [_<null,listing/item_info/cpu> <null>]
+listing/seller_info: [_<null,listing/seller_info> {_<null> seller_name: <seller_name>, seller_rating: <seller_rating>}]}

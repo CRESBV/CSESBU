@@ -1,47 +1,44 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
+import java.io.*;
+import java.util.Scanner;
 
 public class Tester {
+    private String bob;
 
     public static void main(String[] args) {
-        Stack<Integer> test = new Stack<Integer>();
-        test.push(5);
-        test.push(4);
-        test.push(3);
-        test.push(2);
-        test.push(1);
-        System.out.println(Arrays.toString(test.toArray()));
-
+        Tester tester = new Tester();
+        Scanner input = new Scanner(System.in);
         try {
-            Stack<Integer> t1 = reverse(test);
-
-            System.out.println(Arrays.toString(t1.toArray()));
-        } catch (Exception e) {
+            File f = new File("saveFile.obj");
+            if (f.exists()) {
+                tester.bob = load("saveFile.obj");
+            }
+            System.out.println("bob = " + tester.bob);
+            System.out.println("input text:");
+            tester.bob = input.nextLine();
+            System.out.println("bob updated to = " + tester.bob);
+            save("saveFile.obj", tester.bob);
+            System.out.println("closing");
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        input.close();
     }
 
-    private static Stack<Integer> reverse(Stack<Integer> stck) throws Exception {
-        if (stck == null) {
-            throw new Exception("empty");
-        } else {
-            Stack<Integer> temp = new Stack<>();
-            return reverseHelper(stck, temp);
-        }
+    public static String load(String filename) throws IOException, ClassNotFoundException {
+        FileInputStream file = new FileInputStream(filename);
+        ObjectInputStream inStream = new ObjectInputStream(file);
+        return (String) inStream.readObject();
+
     }
 
-    private static Stack<Integer> reverseHelper(Stack<Integer> main, Stack<Integer> sec) throws Exception {
-        if (main == null) {
-            throw new Exception("empty");
-        } else {
-            if (main.size() >= 1) {
-                sec.push(main.pop());
-                reverseHelper(main, sec);
-            }
-            return sec;
-        }
+    public static void save(String filename, String saver) throws IOException {
+        FileOutputStream fileOutputStream = new FileOutputStream(filename);
+        ObjectOutputStream outStream = new ObjectOutputStream(fileOutputStream);
+        outStream.writeObject(saver);
     }
-
-
 }
+
+
+
+
